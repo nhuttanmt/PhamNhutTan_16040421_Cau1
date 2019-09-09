@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
         cb = (CheckBox) findViewById(R.id.checkBox);
         btn = (Button) findViewById(R.id.button);
+        btn2 = (Button) findViewById(R.id.button2);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -31,5 +32,32 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alerdialog();
+            }
+        });
+    }
+    private void alerdialog(){
+        AlertDialog.Builder al =  new AlertDialog.Builder(this);
+        al.setTitle("Thông báo");
+        al.setMessage("Bạn có muốn thoát hay không ?");
+        al.setPositiveButton("có", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(MainActivity.this, "Bạn chọn có", Toast.LENGTH_SHORT).show();
+            }
+        });
+        al.setNegativeButton("không", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(MainActivity.this, "Bạn chọn không", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+//        AlertDialog alert = al.create();
+        al.show();
+
     }
 }
